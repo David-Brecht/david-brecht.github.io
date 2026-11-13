@@ -1,0 +1,714 @@
+:root {
+  color-scheme: light;
+  --page: #f1f3f5;
+  --surface: #ffffff;
+  --ink: #35404e;
+  --muted: #626d7b;
+  --line: #dce1e6;
+  --accent: #00335c;
+  --accent-light: #5e94d4;
+  --header: #00335c;
+  --banner: #1b364d; /* project banner: the CV navy at about half the saturation */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-padding-top: 24px; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 1px;
+}
+
+.container {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 2;
+  top: -100px;
+  left: 16px;
+  padding: 8px 16px;
+  background: white;
+}
+
+.skip-link:focus { top: 8px; }
+
+.topbar {
+  background: var(--header);
+  color: #f5f6f8;
+}
+
+.topbar-inner {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-name {
+  color: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 0 10px;
+  border-bottom: 2px solid var(--accent-light);
+  color: #f5f6f8;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.topbar a:focus-visible { outline-color: #fff; }
+
+.profile {
+  background: #fafbfc;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding-block: 25px;
+}
+
+.portrait {
+  display: block;
+  flex: 0 0 auto;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 43%;
+  border: 1px solid #d9dfe5;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -.5px;
+}
+
+.profile-subtitle {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 9px;
+  font-size: 14px;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.contact-links a:hover { text-decoration: underline; }
+
+.contact-links svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.contact-links .github-icon {
+  fill: currentColor;
+  stroke: none;
+}
+
+main { padding-top: 30px; }
+
+main:focus { outline: none; }
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  padding: 24px 24px 26px;
+  background: var(--surface);
+  border: 1px solid #e5e8ec;
+  border-radius: 4px;
+}
+
+.project-figure {
+  position: relative;
+  margin: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid #e4e8ed;
+  border-radius: 2px;
+  background: #f8fafb;
+}
+
+.project-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-figure figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  color: #677382;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.project-copy h3 {
+  margin-bottom: 11px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.32;
+}
+
+.project-copy p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.site-footer {
+  margin-top: 36px;
+  padding-block: 18px 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site-footer small { font-size: 12px; }
+
+@media (max-width: 760px) {
+  .container { width: min(580px, calc(100% - 36px)); }
+  .project-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .profile-inner { justify-content: flex-start; gap: 20px; padding-block: 23px; }
+  .portrait { width: 88px; height: 88px; }
+  h1 { font-size: 28px; }
+  .profile-subtitle { font-size: 15px; }
+  .project-card { padding: 20px; }
+}
+
+@media (max-width: 380px) {
+  .profile-inner { gap: 15px; }
+  .portrait { width: 72px; height: 72px; }
+  h1 { font-size: 25px; }
+  .profile-subtitle { max-width: 180px; line-height: 1.45; }
+  .contact-links { gap: 17px; }
+  .project-copy h3 { font-size: 21px; }
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.read-more:hover { text-decoration: underline; }
+
+.project-note {
+  grid-column: 1 / -1;
+  padding-block: 22px;
+  text-align: center;
+}
+
+.project-note p { color: var(--muted); font-size: 16px; }
+
+/* Project detail page */
+.project-page { padding-top: 0; } /* the banner starts right under the top bar */
+
+.back-link {
+  display: inline-block;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* "All projects" sits in the left-hand gap and stays in view, mirroring the contents list on the right. */
+.page-back {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--sticky-offset, 68px) + 8px);
+  margin-top: 4px;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+/* Navy top bar stays at the top on project pages. */
+.site-header--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 3px solid #fff; /* thin white line between top bar and title strip */
+}
+
+/* Anchor jumps land below the sticky bars (banner.js raises this on wide screens). */
+html:has(.site-header--sticky) { scroll-padding-top: var(--sticky-offset, 68px); }
+
+.project-banner {
+  --p: 0; /* collapse progress, 0 = full photo, 1 = navy title strip (set by banner.js) */
+  position: relative;
+  z-index: 5;
+  margin: 0;
+  overflow: hidden;
+  background: var(--banner);
+}
+
+/* Logos and title share the page container width (.container), so the title starts exactly
+   below the name in the top bar. With two photos, the frame is laid over the full-width photos. */
+.banner-frame { position: relative; }
+.banner-photos + .banner-frame { position: absolute; inset: 0; }
+/* With full-width photos, the darkening behind the title runs across the whole banner. */
+.banner-photos + .banner-frame figcaption { background: none; }
+
+.banner-photos::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 55%;
+  background: linear-gradient(transparent, rgba(27, 54, 77, .8));
+}
+
+.banner-frame > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* Two photos side by side across the full page width. They overlap in the middle, where the
+   right photo fades in along a line tilted by about 30° and a soft band in the banner blue hides the seam. */
+.banner-photos {
+  position: relative;
+  /* Up to 1920px wide: 24% of the width, between 240 and 360px.
+     Wider screens: grows with the width (18.75vw = 360px at 1920), keeping the 1080p shape and crop. */
+  height: max(clamp(240px, 24vw, 360px), 18.75vw);
+  overflow: hidden;
+}
+
+.banner-photo {
+  position: absolute;
+  top: 0;
+  width: 58%; /* left 63% and right 53% below: the photos overlap from 47% to 63%, seam at about 55% */
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vertical slice of the operator photo: 0% puts the head low, 14% centres it; 7% sits between. */
+/* A single photo filling the whole banner. */
+.banner-photo--single { left: 0; width: 100%; object-position: 50% 50%; }
+
+.banner-photo--left { left: 0; width: 63%; object-position: 30% 7%; }
+
+.banner-photo--right {
+  right: 0;
+  width: 53%;
+  object-position: 60% 50%;
+  -webkit-mask-image: linear-gradient(120deg, transparent 14%, #000 30%);
+  mask-image: linear-gradient(120deg, transparent 14%, #000 30%);
+}
+
+.banner-seam {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 47.5%, rgba(27, 54, 77, .7) 54.5%, transparent 61.5%);
+}
+
+/* Navy layer that fades in over the photo as the banner collapses. */
+.project-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--banner);
+  opacity: var(--p);
+  pointer-events: none;
+}
+
+.banner-logos {
+  z-index: 2;
+  position: absolute;
+  top: 14px;
+  right: 0; /* right edge in line with "Projects" in the top bar */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: rgba(27, 54, 77, .6);
+}
+
+.banner-logos img {
+  display: block;
+  width: auto;
+  height: 24px;
+  aspect-ratio: auto;
+}
+
+/* The KIT logo is green and black; render it white like the others. */
+.banner-logos .logo-to-white { filter: brightness(0) invert(1); }
+
+.project-banner figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* No left padding: the title lines up with the name in the top bar. */
+  padding: 48px 28px calc(22px - 8px * var(--p)) 0;
+  background: linear-gradient(transparent, rgba(27, 54, 77, .8));
+  color: #fff;
+}
+
+.project-banner h1 {
+  font-size: calc(26px - 7px * var(--p)); /* 26px over the photo, 19px in the stuck strip */
+}
+
+.project-banner figcaption p {
+  max-height: calc(30px * (1 - var(--p)));
+  margin-top: calc(4px * (1 - var(--p)));
+  overflow: hidden;
+  font-size: 18px;
+  opacity: calc(.9 * (1 - 2 * var(--p)));
+}
+
+/* Wide screens: the banner scrolls up behind its title and the title strip sticks under the top bar. */
+@media (min-width: 1181px) {
+  .project-banner { position: sticky; }
+}
+
+/* Text column in the middle, sticky contents list in the right-hand gap. */
+.project-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 760px) minmax(0, 1fr);
+  column-gap: 32px;
+  margin-top: 36px;
+}
+
+.project-body { grid-column: 2; }
+
+.toc {
+  grid-column: 3;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--sticky-offset, 68px) + 8px);
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.toc-title {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 2px solid var(--line);
+}
+
+.toc a {
+  display: block;
+  margin-left: -2px;
+  padding: 5px 0 5px 12px;
+  border-left: 2px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.toc a:hover { color: var(--accent); }
+
+.toc a[aria-current="true"] {
+  border-left-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 1180px) {
+  .project-layout { display: block; max-width: 760px; margin-inline: auto; }
+  .page-back { position: static; margin-bottom: 20px; }
+  .toc { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+.project-body h2 {
+  margin: 56px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-light);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.project-body h2:first-child { margin-top: 0; }
+
+/* Everything below the banner shares the text column width. */
+.project-body p,
+.project-body figcaption {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.project-body h3 {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* YouTube video, loaded only after a click (see video.js). */
+.video {
+  position: relative;
+  margin-top: 16px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--header);
+}
+
+.video img,
+.video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.video-poster { display: block; height: 100%; }
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  border-radius: 50%;
+  background: rgba(0, 51, 92, .85);
+  transition: background .15s;
+}
+
+.play-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -13px 0 0 -8px;
+  border-style: solid;
+  border-width: 13px 0 13px 22px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.video-poster:hover .play-button,
+.video-poster:focus-visible .play-button { background: var(--accent-light); }
+
+.video-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(0, 51, 92, .7);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.project-body .project-footnote {
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.project-body p + p { margin-top: 12px; }
+
+.gallery {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.gallery figure {
+  flex: 0 0 100%;
+  margin: 0;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid #e5e8ec;
+  border-radius: 4px;
+  scroll-snap-align: start;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Paper reference: a blurred first page framed like a printed sheet. */
+.paper {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 16px;
+}
+
+.paper-cover {
+  position: relative;
+  flex: 0 0 150px;
+  display: block;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 6px 16px rgba(0, 51, 92, .12);
+}
+
+.paper-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: blur(1.2px);
+}
+
+.paper-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, .45);
+}
+
+.project-body .paper-text p {
+  margin: 0;
+  text-align: left;
+  hyphens: manual;
+}
+
+.paper-authors,
+.paper-venue { color: var(--muted); font-size: 15px; }
+
+.paper-title {
+  margin: 4px 0 !important;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.paper-title a { color: var(--ink); text-decoration: none; }
+.paper-title a:hover { color: var(--accent); text-decoration: underline; }
+
+.figure-note {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.gallery-nav[hidden] { display: none; }
+
+.gallery-nav button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-nav button:hover:not(:disabled) { border-color: var(--accent-light); }
+.gallery-nav button:disabled { opacity: .4; cursor: default; }
+
+.gallery figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .banner-frame > img { aspect-ratio: 16 / 9; }
+  /* Phones: the operator photo alone, full width. */
+  .banner-photos { height: auto; aspect-ratio: 16 / 9; }
+  .banner-photo--left { width: 100%; }
+  .banner-photo--right, .banner-seam { display: none; }
+  .project-banner figcaption { padding: 36px 18px 14px 0; }
+  .project-banner h1 { font-size: 22px; }
+  .project-banner figcaption p { font-size: 15px; }
+  .play-button { transform: scale(.8); }
+  .paper { gap: 18px; }
+  .project-body h2 { margin-top: 44px; }
+  .video-hint { right: 6px; bottom: 6px; font-size: 11px; }
+  .banner-logos { top: 10px; gap: 10px; padding: 6px 10px; }
+  .banner-logos img { height: 16px; }
+  .paper-cover { flex-basis: 96px; }
+}

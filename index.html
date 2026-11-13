@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Selected engineering projects by David Brecht in autonomous driving, motion planning, perception and teleoperation.">
+    <meta name="theme-color" content="#00335c">
+    <title>David Brecht | Robotics Projects</title>
+    <link rel="icon" href="assets/deployment/common/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#projects">Skip to projects</a>
+
+    <header class="site-header">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <a class="site-name" href="./">David Brecht</a>
+          <nav aria-label="Main navigation">
+            <a class="nav-link" href="#projects" aria-current="page">Projects</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="profile">
+        <div class="container profile-inner">
+          <img class="portrait" src="assets/deployment/common/david-brecht.jpg" width="108" height="108" alt="David Brecht">
+          <div class="profile-copy">
+            <h1>David Brecht</h1>
+            <p class="profile-subtitle">Robotics &amp; autonomous driving</p>
+            <div class="contact-links" aria-label="Contact and professional links">
+              <a href="mailto:david.brecht1998@gmail.com">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1"/><path d="m3 5 7 6 7-6"/></svg>
+                Email
+              </a>
+              <a href="https://github.com/David-Brecht">
+                <svg viewBox="0 0 24 24" class="github-icon" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="projects" class="container" tabindex="-1" aria-label="Projects">
+      <div class="project-grid">
+        <article class="project-card" aria-labelledby="drivable-space-title">
+          <figure class="project-figure">
+            <img src="assets/deployment/kit_drivable_space/title_page.jpeg" width="2460" height="1519" alt="Remote operator at the teleoperation workstation, with camera views and a map of the drivable space.">
+          </figure>
+          <div class="project-copy">
+            <h3 id="drivable-space-title">Drivable Space Adaption for Autonomous Vehicles</h3>
+            <p>A remote operator adjusts the drivable space used by an existing optimisation-based motion planner, enabling it to find a trajectory around an obstruction. Implemented and demonstrated on KIT’s automated vehicle.</p>
+            <a class="read-more" href="projects/drivable-space-adaption.html" aria-describedby="drivable-space-title">Read more →</a>
+          </div>
+        </article>
+
+        <article class="project-card" aria-labelledby="collaborative-planning-title">
+          <figure class="project-figure">
+            <img src="assets/deployment/edgar_collaborative_planning/title_page.jpg" width="1600" height="996" alt="Planner visualisation of the EDGAR vehicle at a junction, with a proposed path around an obstruction.">
+          </figure>
+          <div class="project-copy">
+            <h3 id="collaborative-planning-title">Collaborative Planning for Autonomous Vehicles</h3>
+            <p>When the nominal planner cannot find a viable path, a remote operator can select an alternative proposed by an A*-based free-space planner. Developed for EDGAR and deployed on the real vehicle.</p>
+            <a class="read-more" href="projects/collaborative-planning.html" aria-describedby="collaborative-planning-title">Read more →</a>
+          </div>
+        </article>
+
+        <aside class="project-card project-note">
+          <p>Further projects will be added soon.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer container">
+      <small>© David Brecht</small>
+    </footer>
+  </body>
+</html>

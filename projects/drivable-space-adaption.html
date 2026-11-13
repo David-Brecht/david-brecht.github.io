@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Drivable space adaption for autonomous vehicles: a remote operator adjusts the planning constraints so the automation can pass an obstruction.">
+    <meta name="theme-color" content="#00335c">
+    <title>Drivable Space Adaption | David Brecht</title>
+    <link rel="icon" href="../assets/deployment/common/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header site-header--sticky">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <a class="site-name" href="../">David Brecht</a>
+          <nav aria-label="Main navigation">
+            <a class="nav-link" href="../#projects">Projects</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="project-page" tabindex="-1">
+      <figure class="project-banner">
+        <div class="banner-photos">
+          <img class="banner-photo banner-photo--left" src="../assets/deployment/kit_drivable_space/title_page.jpeg" width="2460" height="1519" alt="Remote operator at the teleoperation workstation, with camera views and a map of the drivable space.">
+          <img class="banner-photo banner-photo--right" src="../assets/deployment/kit_drivable_space/drivable_space_scenario.jpg" width="1600" height="1066" alt="The automated test vehicle on the test track, following a car.">
+          <span class="banner-seam" aria-hidden="true"></span>
+        </div>
+        <div class="banner-frame container">
+          <div class="banner-logos" aria-label="Project partners">
+            <img src="../assets/deployment/common/logos/autotech_agil_white.svg" width="500" height="135" alt="autotech.agil">
+            <img src="../assets/deployment/common/logos/tum_white.png" width="200" height="104" alt="Technical University of Munich">
+            <img class="logo-to-white" src="../assets/deployment/common/logos/kit.svg" width="1000" height="500" alt="Karlsruhe Institute of Technology">
+          </div>
+          <figcaption>
+            <h1>Drivable Space Adaption for Autonomous Vehicles</h1>
+            <p>Helping your AV to get unstuck</p>
+          </figcaption>
+        </div>
+      </figure>
+
+      <div class="container">
+      <div class="project-layout">
+      <nav class="page-back" aria-label="Back">
+        <a class="back-link" href="../#projects">← All projects</a>
+      </nav>
+      <div class="project-body">
+        <h2 id="blocking-object">Blocking Object in Lane</h2>
+
+        <div class="video" data-youtube-id="cDaHewxZwfg">
+          <a class="video-poster" href="https://www.youtube.com/watch?v=cDaHewxZwfg" aria-label="Play video: Passing an object that blocks the lane (opens YouTube)">
+            <img src="../assets/deployment/kit_drivable_space/drivable_space_scenario.jpg" width="1600" height="1066" loading="lazy" alt="">
+            <span class="play-button" aria-hidden="true"></span>
+            <span class="video-hint">Playing the video loads it from YouTube.</span>
+          </a>
+        </div>
+
+        <h3>A Deep Dive into the Data</h3>
+        <div class="gallery" role="region" aria-label="Blocking object in lane: plots" tabindex="0">
+          <figure>
+            <img src="../assets/deployment/kit_drivable_space/results/fig_pub_example_obstacle.jpg" width="1600" height="746" loading="lazy" alt="Top-down view of an obstacle episode: the operator polygon extends the drivable area into the adjacent lane, and the selected trajectory passes the obstacle.">
+            <figcaption>The operator draws a polygon that extends the drivable area across the solid centre line into the adjacent lane. The automation merges it into its corridor, and the motion planner finds a trajectory around the obstacle. Across all 36 obstacle episodes, the operator polygons covered between 108 and 156 m², yet the planned paths were nearly identical and kept 1.41–1.59 m from the obstacle.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/deployment/kit_drivable_space/results/fig_velocity_obstacle.jpg" width="1600" height="573" loading="lazy" alt="Vehicle speed over time for an obstacle episode, with the phases from handover to the remote operator until handover back to the automation shaded.">
+            <figcaption>The vehicle stands still while the operator assesses the scene, draws the polygon and reviews the proposal; these steps take up most of the 60 s from request to handover. Planning itself takes 0.3 s. After the confirmation, the vehicle starts within 1.7 s, passes the obstacle at about 12 km/h, and the automation continues without stopping. <small class="figure-note">This was presented to visitors of the autotech.agil project, and the system was explained to them during the interaction. Real interaction is therefore expected to be much faster.</small></figcaption>
+          </figure>
+        </div>
+        <div class="gallery-nav" hidden>
+          <button type="button" data-step="-1" aria-label="Previous plot">‹</button>
+          <span class="gallery-count" aria-live="polite">1 / 2</span>
+          <button type="button" data-step="1" aria-label="Next plot">›</button>
+        </div>
+
+        <h2 id="covered-traffic-light">Covered Traffic Light</h2>
+
+        <div class="video" data-youtube-id="cDaHewxZwfg">
+          <a class="video-poster" href="https://www.youtube.com/watch?v=cDaHewxZwfg" aria-label="Play video: Proceeding through an intersection with a covered traffic light (opens YouTube)">
+            <img src="../assets/deployment/kit_drivable_space/traffic_light_scenario.jpg" width="1600" height="1066" loading="lazy" alt="">
+            <span class="play-button" aria-hidden="true"></span>
+            <span class="video-hint">Playing the video loads it from YouTube.</span>
+          </a>
+        </div>
+
+        <h3>A Deep Dive into the Data</h3>
+        <div class="gallery" role="region" aria-label="Covered traffic light: plots" tabindex="0">
+          <figure>
+            <img src="../assets/deployment/kit_drivable_space/results/fig_pub_example_traffic_light.jpg" width="1600" height="748" loading="lazy" alt="Top-down view of a traffic-light episode: the operator moves the stop line beyond the intersection, and the selected trajectory turns through it.">
+            <figcaption>The operator moves the virtual stop line beyond the intersection, which releases the blocked lane section for planning, and the vehicle turns through the intersection. At this site, operators placed the new stop line 25.5–34.3 m beyond the original one. Since the proposals are only about 24 m long, the exact placement does not change the manoeuvre.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/deployment/kit_drivable_space/results/fig_velocity_traffic_light.jpg" width="1600" height="573" loading="lazy" alt="Vehicle speed over time for a traffic-light episode, with the phases from handover to the remote operator until handover back to the automation shaded.">
+            <figcaption>As with the obstacle, the operator steps fill most of the 62 s from request to handover while the vehicle stands still, and planning takes 0.2 s. The vehicle crosses the intersection at up to about 13 km/h and accelerates further once the automation has taken over again. <small class="figure-note">This was presented to visitors of the autotech.agil project, and the system was explained to them during the interaction. Real interaction is therefore expected to be much faster.</small></figcaption>
+          </figure>
+        </div>
+        <div class="gallery-nav" hidden>
+          <button type="button" data-step="-1" aria-label="Previous plot">‹</button>
+          <span class="gallery-count" aria-live="polite">1 / 2</span>
+          <button type="button" data-step="1" aria-label="Next plot">›</button>
+        </div>
+
+        <h2 id="project">Deep Dive into the Project</h2>
+        <p>Remote operation is used in robotics and autonomous driving to resolve, through human intervention, edge cases that the automation cannot solve on its own. In this project, rather than controlling the vehicle directly via steering wheel and pedals, the remote operator interacts with the motion planning module to resolve edge cases that originate in planning.</p>
+        <p>The teleoperation system is built up as follows: when the vehicle cannot continue, it stops and requests remote assistance. The operator adapts the drivable space, either by drawing a corridor around an obstacle or by moving a virtual stop line. The vehicle’s motion planner then computes a trajectory within the adapted space. Once the operator confirms it, the vehicle drives the manoeuvre and hands control back to the automation.</p>
+        <p>Both use cases were presented to the public at the autotech.agil final event. In 32 runs, both use cases were demonstrated to visitors. This page shows one exemplary run for each use case.</p>
+
+        <h2 id="further-reading">Further Reading</h2>
+        <div class="paper">
+          <a class="paper-cover" href="https://doi.org/10.1109/IV64158.2025.11097737" tabindex="-1" aria-hidden="true">
+            <img src="../assets/deployment/kit_drivable_space/paper_front_page_web.jpg" width="440" height="571" loading="lazy" alt="">
+          </a>
+          <div class="paper-text">
+            <p class="paper-authors">Le Large, Brecht et al., 2025</p>
+            <p class="paper-title"><a href="https://doi.org/10.1109/IV64158.2025.11097737">Human-Aided Trajectory Planning for Automated Vehicles through Teleoperation and Arbitration Graphs</a></p>
+            <p class="paper-venue">IEEE Intelligent Vehicles Symposium 2025</p>
+          </div>
+        </div>
+
+        <p class="project-footnote">Funded by the <a href="https://www.bmftr.bund.de/EN/Home/home_node.html">BMFTR</a> within the project <a href="https://www.autotechagil.de">autotech.agil</a>. Drivable Space Adaptation is a joint project between the <a href="https://www.mos.ed.tum.de/en/ftm/home/">TUM Chair of Automotive Technology</a> and the <a href="https://www.mrt.kit.edu/english/index.php">KIT Institute of Measurement and Control Systems</a>.</p>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ol>
+          <li><a href="#blocking-object">Blocking Object in Lane</a></li>
+          <li><a href="#covered-traffic-light">Covered Traffic Light</a></li>
+          <li><a href="#project">Deep Dive into the Project</a></li>
+          <li><a href="#further-reading">Further Reading</a></li>
+        </ol>
+      </nav>
+      </div>
+      </div>
+    </main>
+
+    <footer class="site-footer container">
+      <small>© David Brecht</small>
+    </footer>
+    <script src="../video.js"></script>
+    <script src="../gallery.js"></script>
+    <script src="../toc.js"></script>
+    <script src="../banner.js"></script>
+  </body>
+</html>
