@@ -29,7 +29,6 @@ The result plots come from the evaluation in `~/data/kit_collaborative_planning`
 
 ## Open items
 
-- Both videos on the drivable space page use a placeholder YouTube ID (`cDaHewxZwfg`). Replace it in `data-youtube-id` and the link of each `.video` block.
 - The "Deep Dive into the Project" section has no overview images yet.
 - The collaborative planning (EDGAR) page has no content yet.
 
